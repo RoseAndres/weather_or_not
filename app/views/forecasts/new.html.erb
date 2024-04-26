@@ -1,7 +1,10 @@
+<h2>Get the forecast for a location</h2>
+
 <%= form_with url: forecasts_path do |f| %>
   <div class='field'>
-    <%= f.label :address %>
-    <%= f.text_field :address %>
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+    <p>Please provide a location in the format "{zipcode}, {country abbreviation}"</p>
   </div>
 
   <div class='actions'>
