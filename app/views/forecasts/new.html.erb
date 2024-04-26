@@ -2,12 +2,20 @@
 
 <%= form_with url: forecasts_path do |f| %>
   <div class='field'>
-    <%= f.label :location %>
-    <%= f.text_field :location %>
-    <p>Please provide a location in the format "{zipcode}, {country abbreviation}"</p>
+    <%= f.label :zip, 'Please provide a 5-digit zip code' %>
+    <br>
+    <%= f.text_field :zip  %>
   </div>
+
+  <br>
 
   <div class='actions'>
     <%= f.submit('Get Forecast') %>
   </div>
 <% end %>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('input[type="text"]').focus();
+  });
+</script>
