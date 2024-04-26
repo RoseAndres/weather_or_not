@@ -1,0 +1,10 @@
+<%= form_with url: forecasts_path do |f| %>
+  <div class='field'>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div class='actions'>
+    <%= f.submit('Get Forecast') %>
+  </div>
+<% end %>
