@@ -1,3 +1,22 @@
-<%= zip %>
-<br>
-<pre><%= JSON.pretty_generate weather %></pre>
+<div class="container">
+  <h2>Forecast for <%= zip %></h2>
+  <%= link_to 'New Forecast', new_forecast_path %>
+  <%= link_to 'Refresh', forecast_path(zip, force_cache: true) %>
+  <br><br>
+
+  <% weather_icon_url = "http://openweathermap.org/img/wn/#{weather.dig('current', 'weather', 0, 'icon')}@2x.png" %>
+  <img class="weather-icon" src="<%= weather_icon_url %>" alt="Weather Icon" />
+
+  <p><b>Weather:</b> <%= weather.dig('current', 'weather', 0, 'description') %></p>
+
+  <p><b>Current Temp:</b> <%= weather.dig('current', 'temp').ceil %>&deg;F</p>
+
+  <p><b>High:</b> <%= weather.dig('temperature', 'max').ceil %>&deg;F</p>
+
+  <p><b>Low:</b> <%= weather.dig('temperature', 'min').ceil %>&deg;F</p>
+
+  <% cached_time = Time.at(weather.dig('current', 'dt')) %>
+  <p><%= cached ? nil : '💾' %> <i>Accurate as of <%= cached_time.strftime('%H:%M%p %m/%d/%Y') %></i></p>
+
+  <%# JSON.pretty_generate(weather) %>
+</div>
