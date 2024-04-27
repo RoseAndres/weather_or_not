@@ -1,6 +1,6 @@
 module OpenWeather
-  class Weather < ApplicationInteractor
-    BASE_URL = 'https://api.openweathermap.org/data/3.0/onecall'
+  class DailyAggregation < ApplicationInteractor
+    BASE_URL = 'https://api.openweathermap.org/data/3.0/onecall/day_summary'
 
     def initialize(lat, lon)
       raise ArgumentError, 'Must have latitude and longitude' if lat.nil? || lon.nil?
@@ -25,6 +25,8 @@ module OpenWeather
       {
         lat: @lat,
         lon: @lon,
+        date: Date.current.to_s,
+        units: 'imperial',
         appid: api_key
       }
     end
