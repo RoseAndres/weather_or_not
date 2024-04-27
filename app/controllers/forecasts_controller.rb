@@ -2,7 +2,9 @@ class ForecastsController < ApplicationController
   def new; end
 
   def show
-    render locals: { weather: weather, zip: zip }
+    flash[:notice] = 'Refreshed Cache' if force_cache?
+
+    render locals: { weather: weather, zip: zip, cached: @cached }
   rescue ArgumentError => e
     flash[:error] = e.message
     redirect_to new_forecast_path
@@ -27,18 +29,30 @@ class ForecastsController < ApplicationController
              end
   end
 
+  def force_cache?
+    params[:force_cache] == 'true'
+  end
+
   def weather
-    if Rails.cache.exist?(zip)
-      Rails.cache.read(zip)
+    if Rails.cache.exist?(zip) && !force_cache?
+      @cached = false
+      Rails.cache.read(zip).with_indifferent_access
     else
       geocode_response = ::OpenWeather::Geocode.perform(zip)
       geocode_json = JSON.parse(geocode_response.body)
 
-      weather_response = ::OpenWeather::Weather.perform(geocode_json['lat'], geocode_json['lon'])
-      weather_json = JSON.parse(weather_response.body)
+      current_response = ::OpenWeather::Current.perform(geocode_json['lat'], geocode_json['lon'])
+      current_json = JSON.parse(current_response.body)
 
-      Rails.cache.write(zip, weather_json, expires_in: 30.minutes)
-      weather_json
+      daily_response = ::OpenWeather::DailyAggregation.perform(geocode_json['lat'], geocode_json['lon'])
+
+      weather_data = JSON.parse(daily_response.body).tap do |data|
+        data['current'] = current_json['current']
+      end
+
+      Rails.cache.write(zip, weather_data, expires_in: 30.minutes)
+      @cached = true
+      weather_data.with_indifferent_access
     end
   end
 end
