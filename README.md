@@ -21,6 +21,6 @@ NOTE: once you have obtained this file **DO NOT COMMIT IT**. This will compromis
 ## RUNNING THE PROJECT
 Perform the following steps:
 1. Start redis server with `redis-server` (again, assuming you installed with Homebrew locally) in its own shell window/tab.
-1. Start your rails server with `bin/rails c` in its own shell window/tab.
+1. Start your rails server with `bin/rails s` in its own shell window/tab.
 1. Navigate to `localhost:3000` in a web browser
 1. Start forecasting!
