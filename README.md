@@ -19,8 +19,8 @@ Request the `master.key` file from another team member to enable your instance o
 NOTE: once you have obtained this file **DO NOT COMMIT IT**. This will compromise the encrypted credentials.
 
 ## RUNNING THE PROJECT
-Run each of the following commands in separate shell windows/tabs:
-1. Start redis server with `redis-server` (again, assuming you installed with Homebrew locally)
-1. Start your rails server with `bin/rails c`
+Perform the following steps:
+1. Start redis server with `redis-server` (again, assuming you installed with Homebrew locally) in its own shell window/tab.
+1. Start your rails server with `bin/rails c` in its own shell window/tab.
 1. Navigate to `localhost:3000` in a web browser
 1. Start forecasting!
