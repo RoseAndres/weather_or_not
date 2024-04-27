@@ -11,7 +11,8 @@ Perform the following steps from a shell/terminal:
   * The easiest way to get started with this is to install is via [homebrew](https://brew.sh/), using the following command: `brew install redis`
 
 ## CONFIG
-* Set the environment variable `REDIS_URL` to the url of your redis store (`redis://localhost:6379/0` by default, if you installed via Homebrew and are running it locally)
+* Rename the `example.env` file in the root directory to `.env`.
+* Change the value of `REDIS_URL` to the url of your redis store (`redis://localhost:6379/0` by default, if you installed via Homebrew and are running it locally)
 
 ## CREDENTIALS
 Request the `master.key` file from another team member to enable your instance of the app's encrypted credentials. You will not be able to use them without that file.
