@@ -1,7 +1,8 @@
 <div class="container">
   <h2>Forecast for <%= zip %></h2>
   <%= link_to 'New Forecast', new_forecast_path %>
-  <%= link_to 'Refresh', forecast_path(zip, force_cache: true) %>
+  &mdash;
+  <%= link_to 'Fetch Latest Forecast', forecast_path(zip, force_cache: true) %>
   <br><br>
 
   <% weather_icon_url = "http://openweathermap.org/img/wn/#{weather.dig('current', 'weather', 0, 'icon')}@2x.png" %>
