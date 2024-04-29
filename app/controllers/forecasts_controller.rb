@@ -56,6 +56,7 @@ class ForecastsController < ApplicationController
     end
   rescue ArgumentError => e
     raise ArgumentError.new(t('weather.blank_zip_code_error')) if e.message == 'key cannot be blank'
+    raise ArgumentError.new(t('weather.location_not_found_error')) if e.message == 'Error fetching location'
 
     raise e
   end

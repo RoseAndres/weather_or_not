@@ -34,3 +34,4 @@ en:
         blank_zip_code_error: "Please enter a zip code"
       weather:
         blank_zip_code_error: "Please enter a zip code"
+        location_not_found_error: "Location not found"
