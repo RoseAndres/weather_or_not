@@ -28,4 +28,9 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  controllers:
+    forecasts:
+      create:
+        blank_zip_code_error: "Please enter a zip code"
+      weather:
+        blank_zip_code_error: "Please enter a zip code"

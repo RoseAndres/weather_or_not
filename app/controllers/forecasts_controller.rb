@@ -14,7 +14,7 @@ class ForecastsController < ApplicationController
     if params[:zip].present?
       redirect_to forecast_path(params[:zip])
     else
-      flash[:error] = 'Location can\'t be blank'
+      flash[:error] = t('create.blank_zip_code_error')
       redirect_to new_forecast_path
     end
   end
@@ -55,7 +55,7 @@ class ForecastsController < ApplicationController
       weather_data.with_indifferent_access
     end
   rescue ArgumentError => e
-    raise ArgumentError.new('Please enter a zip code') if e.message == 'key cannot be blank'
+    raise ArgumentError.new(t('weather.blank_zip_code_error')) if e.message == 'key cannot be blank'
 
     raise e
   end
