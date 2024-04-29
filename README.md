@@ -25,3 +25,14 @@ Perform the following steps:
 1. Start your rails server with `bin/rails s` in its own shell window/tab.
 1. Navigate to `localhost:3000` in a web browser
 1. Start forecasting!
+
+## TESTING
+This app is tested using the [Minitest](https://github.com/minitest/minitest) framework that came installed by default. 
+
+It also makes use of [VCR](https://github.com/vcr/vcr) to store responses from external APIs, to prevent unnecessary usage, and filters any sensitive data out of the stored responses.
+You can find the cassette files in [test/cassettes](tests/cassettes).
+
+[SimpleCov](https://github.com/simplecov-ruby/simplecov) is also used to generate a summary of code coverage after tests are run. You will see a readout of the code coverage at the end of the console output when running the tests, and can also view it in a pretty GUI by opening [coverage/index.html](coverage/index.html) in a browser.
+
+ ### RUNNING TESTS
+ Executing `bin/rails test` from the console will run the test suite and generate an up-to-date coverage summary.
