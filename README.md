@@ -30,9 +30,9 @@ Perform the following steps:
 This app is tested using the [Minitest](https://github.com/minitest/minitest) framework that came installed by default. 
 
 It also makes use of [VCR](https://github.com/vcr/vcr) to store responses from external APIs, to prevent unnecessary usage, and filters any sensitive data out of the stored responses.
-You can find the cassette files in [test/cassettes](tests/cassettes).
+You can find the cassette files in [test/cassettes](test/cassettes).
 
-[SimpleCov](https://github.com/simplecov-ruby/simplecov) is also used to generate a summary of code coverage after tests are run. You will see a readout of the code coverage at the end of the console output when running the tests, and can also view it in a pretty GUI by opening [coverage/index.html](coverage/index.html) in a browser.
+[SimpleCov](https://github.com/simplecov-ruby/simplecov) is also used to generate a summary of code coverage after tests are run. You will see a readout of the code coverage at the end of the console output when running the tests, and can also view it in a pretty GUI by opening `coverage/index.html` in a browser _(note that the `coverage` directory is not tracked and will only be generated once you have run the test suite at least once)_.
 
  ### RUNNING TESTS
  Executing `bin/rails test` from the console will run the test suite and generate an up-to-date coverage summary.
