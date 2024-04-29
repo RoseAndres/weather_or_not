@@ -30,7 +30,7 @@ class ForecastsControllerTest < ActionDispatch::IntegrationTest
 
   test 'flashes an error message without a zip code' do
     get forecast_path
-    assert_equal 'Please enter a zip code', flash[:error]
+    assert_equal I18n.t('controllers.forecasts.weather.blank_zip_code_error'), flash[:error]
   end
 
   test "shows an error message with an invalid zip code" do
