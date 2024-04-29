@@ -1,5 +1,8 @@
 # WEATHER OR NOT
 
+Ruby Version: 3.1.3
+Rails Version: 7.1.3
+
 ## GETTING STARTED
 Perform the following steps from a shell/terminal:
 1. Navigate to the parent folder you want this project to live in.
