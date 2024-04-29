@@ -24,6 +24,7 @@ module ActiveSupport
       config.hook_into :webmock
       config.ignore_request { ENV['DISABLE_VCR'] }
       config.ignore_localhost = true
+      config.filter_sensitive_data('<APPID>') { Rails.application.credentials.dig(:open_weather, :api_key) }
       config.default_cassette_options = {
         record: :new_episodes
       }
