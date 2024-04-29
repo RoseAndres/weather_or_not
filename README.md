@@ -18,7 +18,7 @@ Perform the following steps from a shell/terminal:
 * Change the value of `REDIS_URL` to the url of your redis store (`redis://localhost:6379/0` by default, if you installed via Homebrew and are running it locally)
 
 ## CREDENTIALS
-Request the `master.key` file from another team member to enable your instance of the app's encrypted credentials. You will not be able to use them without that file.
+Request the `master.key` file from another team member and place it into the `config` directory to enable your instance of the app to use the encrypted credentials. You will not be able to use them without that file.
 
 NOTE: once you have obtained this file **DO NOT COMMIT IT**. This will compromise the encrypted credentials.
 
