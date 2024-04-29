@@ -1,6 +1,6 @@
 # WEATHER OR NOT
 
-Ruby Version: 3.1.3
+Ruby Version: 3.1.3  
 Rails Version: 7.1.3
 
 ## GETTING STARTED
